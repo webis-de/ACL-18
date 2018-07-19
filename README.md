@@ -9,7 +9,7 @@ Martin Potthast, Johannes Kiesel, Kevin Reinartz, Janek Bevendorff, and Benno St
 Resources
 ---------
   - Download the <a href="https://doi.org/10.5281/zenodo.1181813" target="_blank">dataset</a>, place it under <code>data</code>, and extract it there.
-  - Get the required libraries, <code>aitools4-ie-uima.jar</code> and <code>jsoup-1.6.1.jar</code>, from the <a href="#" target="_blank">resources page</a> and place them under <code>lib</code>.
+  - Get the required libraries, <code>aitools4-ie-uima.jar</code> and <code>jsoup-1.6.1.jar</code>, from the <a href="https://github.com/webis-de/ACL-18/releases/tag/1.0.0" target="_blank">resources page</a> and place them under <code>lib</code>.
 
 
 Building
