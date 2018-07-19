@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>false</primitive>  
+  <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="InfexBASentenceSplitter">
+      <import location="../primitive-AEs/segmentation/InfexBASentenceSplitter.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="InfexBATokenizer">
+      <import location="../primitive-AEs/segmentation/InfexBATokenizer.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="TT4jLemmaAndPartOfSpeechTagger">
+      <import location="../primitive-AEs/tagging/TT4jLemmaAndPartOfSpeechTagger.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="DummyAnalysisEngine">
+      <import location="../primitive-AEs/template/DummyAnalysisEngine.xml"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="TextHyphJSyllableDetector">
+      <import location="../primitive-AEs/segmentation/TextHyphJSyllableDetector.xml"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="WebisReadabilityGrader">
+      <import location="../primitive-AEs/categorization/WebisReadabilityGrader.xml"/>
+    </delegateAnalysisEngine>
+  </delegateAnalysisEngineSpecifiers>
+  <analysisEngineMetaData>
+    <name>Acl17FakeNewsPipeline</name>
+    <description>Used in the ACL-17 paper.</description>
+    <version>1.0</version>
+    <vendor>Webis</vendor>
+    <configurationParameters searchStrategy="language_fallback"/>
+    <configurationParameterSettings/>
+    <flowConstraints>
+      <fixedFlow>
+        <node>DummyAnalysisEngine</node>
+        <node>InfexBASentenceSplitter</node>
+        <node>InfexBATokenizer</node>
+        <node>TT4jLemmaAndPartOfSpeechTagger</node>
+        <node>TextHyphJSyllableDetector</node>
+        <node>WebisReadabilityGrader</node>
+      </fixedFlow>
+    </flowConstraints>
+    <typePriorities>
+      <priorityList>
+        <type>de.aitools.ie.uima.type.core.Paragraph</type>
+        <type>de.aitools.ie.uima.type.core.Sentence</type>
+        <type>de.aitools.ie.uima.type.core.Token</type>
+      </priorityList>
+    </typePriorities>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs>
+          <type>de.aitools.ie.uima.type.core.Token</type>
+          <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.core.Sentence</type>
+          <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.core.Paragraph</type>
+          <feature>de.aitools.ie.uima.type.core.Token:pos</feature>
+          <feature>de.aitools.ie.uima.type.core.Token:stem</feature>
+          <feature>de.aitools.ie.uima.type.core.Token:lemma</feature>
+          <feature>de.aitools.ie.uima.type.core.Token:end</feature>
+          <feature>de.aitools.ie.uima.type.core.Token:begin</feature>
+          <feature>de.aitools.ie.uima.type.core.Token:sofa</feature>
+          <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.core.Syllable</type>
+          <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.core.Readability</type>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+  <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>

@@ -31,5 +31,8 @@
             <fileset dir="${build}"/>
             <fileset dir="${conf}"/>
         </jar>
+        <zip destfile="acl18-bundle.jar">
+          <zipgroupfileset dir="lib" includes="*.jar" />
+        </zip>
     </target>
 </project>

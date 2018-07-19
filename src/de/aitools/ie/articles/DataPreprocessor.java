@@ -110,7 +110,7 @@ public class DataPreprocessor implements Consumer<Article> {
   
   protected CasWriter createWriter(final String part) {
     return new CasWriter(
-        new File(this.outputDirectory, "buzzfeed-" + part).toPath());
+        new File(this.outputDirectory, part).toPath());
   }
   
   protected CasWriter[] getTargetWriters(final Article article) {
