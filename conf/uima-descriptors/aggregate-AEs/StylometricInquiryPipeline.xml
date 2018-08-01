@@ -23,8 +23,8 @@
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
-    <name>Acl17FakeNewsPipeline</name>
-    <description>Used in the ACL-17 paper.</description>
+    <name>StylometricInquiryPipeline</name>
+    <description>Used in the ACL-18 paper.</description>
     <version>1.0</version>
     <vendor>Webis</vendor>
     <configurationParameters searchStrategy="language_fallback"/>
