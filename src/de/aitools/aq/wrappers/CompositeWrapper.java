@@ -9,10 +9,10 @@ import de.aitools.ie.articles.Article;
 
 public class CompositeWrapper extends Wrapper {
   
-	private final List<Wrapper> wrappers;
-	
-	public CompositeWrapper() {
-	  this.wrappers = new ArrayList<>();
+  private final List<Wrapper> wrappers;
+  
+  public CompositeWrapper() {
+    this.wrappers = new ArrayList<>();
     this.addWrapper(new de.aitools.aq.wrappers.ABCNewsWrapper());
     this.addWrapper(new de.aitools.aq.wrappers.AddictingInfoWrapper());
     this.addWrapper(new de.aitools.aq.wrappers.AdoboChroniclesWrapper());
@@ -106,9 +106,9 @@ public class CompositeWrapper extends Wrapper {
     this.addWrapper(new de.aitools.aq.wrappers.YourNewsWireWrapper());
   }
 
-	public void addWrapper(final Wrapper wrapper) {
-		this.wrappers.add(wrapper);
-	}
+  public void addWrapper(final Wrapper wrapper) {
+    this.wrappers.add(wrapper);
+  }
 
   @Override
   public boolean isValidUri(final String targetUri) {

@@ -9,20 +9,20 @@ import de.aitools.ie.articles.Veracity;
 public abstract class Wrapper {
     
     public abstract boolean isValidUri(final String targetUri);
-	  
-	  public Article parse(final String html, final String uri) {
+    
+    public Article parse(final String html, final String uri) {
       final Document jsoupDocument = Jsoup.parse(html);
       final Article article = this.parse(jsoupDocument, uri);
       article.setUri(uri);
       return article;
-	  }
-	  
-	  public Article parse(final String html, final String uri,
-	      final Veracity veracity) {
+    }
+    
+    public Article parse(final String html, final String uri,
+        final Veracity veracity) {
       final Article article = this.parse(html, uri);
-	    article.setVeracity(veracity);
-	    return article;
-	  }
+      article.setVeracity(veracity);
+      return article;
+    }
   
     protected Article parse(final Document jsoupDocument, final String uri) {
       return this.parse(jsoupDocument);
