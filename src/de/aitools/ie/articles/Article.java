@@ -1,5 +1,6 @@
 package de.aitools.ie.articles;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,6 +13,7 @@ import java.util.stream.Stream;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -212,6 +214,16 @@ public class Article {
     return Files.walk(folderPath)
       .filter(path -> path.getFileName().toString().endsWith(".xml"))
       .map(path -> Article.read(path));
+  }
+
+
+  public void write(final File file) throws JAXBException {
+    final JAXBContext jaxbContext = JAXBContext.newInstance(Article.class);
+    final Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+    // output pretty printed
+    jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+    jaxbMarshaller.marshal(this, file);
   }
 
 }
